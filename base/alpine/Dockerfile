@@ -1,6 +1,7 @@
 # Drush Docker Container
-FROM composer/composer:alpine
-MAINTAINER Moses Liao <moses.liao.sd@gmail.com>
+FROM composer/composer
+LABEL MAINTAINER="SATYADEEP G" \
+      "GitHub Link"="https://github.com/satyadeep" \
 
 # Add common extensions
 RUN apk --update add \
