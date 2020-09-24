@@ -17,23 +17,26 @@ versions=( "${versions[@]%/}" )
 
 function writeFiles {
 	local fullVersion=$1
-	local variant=$2
 
 	shortVersion=$(echo $fullVersion | sed -r -e 's/^([0-9]+).*/\1/')
-	if [[ -z $variant ]]; then
 		targetDir="$shortVersion"
 		template=Dockerfile.template
-	else
-		targetDir="$shortVersion/$variant"
-		template=Dockerfile-$variant.template
-	fi
 
 	mkdir -p "$targetDir"
 	cp $template "$targetDir/Dockerfile"
 	if [[ -f docker-entrypoint.sh ]]; then
 		cp -r docker-entrypoint.sh "$targetDir"
 	fi
-	sed -r -i -e 's/^(ENV DRUSH_VERSION) .*/\1 '"$fullVersion"'/' "$targetDir/Dockerfile"
+
+	oldVersion=7
+	if [ "$shortVersion" -le "$oldVersion" ]; then
+	baseVersion="drush-base-old"
+	else
+	baseVersion="drush-base"
+	fi
+	sed -r -i -e 's/DRUSH_FULL_VERSION/'"$fullVersion"'/g' "$targetDir/Dockerfile"
+	sed -r -i -e 's/BASE_IMAGE/'"$baseVersion"'/g' "$targetDir/Dockerfile"
+	rm "$targetDir/Dockerfile-e"
 }
 
 tags="$(git ls-remote --tags https://github.com/drush-ops/drush.git | cut -d/ -f3 | cut -d^ -f1 | cut -dv -f2 | sort -rV)"
@@ -54,6 +57,5 @@ for version in "${versions[@]}"; do
 	(
 		set -x
 		writeFiles $fullVersion
-		writeFiles $fullVersion 'alpine'
 	)
 done

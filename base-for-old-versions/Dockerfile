@@ -1,4 +1,4 @@
-FROM composer
+FROM satyadeep/composer:php5
 LABEL MAINTAINER="SATYADEEP G" \
       "GitHub Link"="https://github.com/satyadeep"
 
