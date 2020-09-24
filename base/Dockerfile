@@ -6,11 +6,13 @@ ADD https://raw.githubusercontent.com/mlocati/docker-php-extension-installer/mas
 
 # Add common extensions
 RUN chmod uga+x /usr/local/bin/install-php-extensions && sync \
-    && install-php-extensions mysqli \
-     pgsql \
-     pdo_mysql \
-     pdo_pgsql \
-     redis \
-     memcached
+      && install-php-extensions mysqli \
+      pgsql \
+      pdo_mysql \
+      pdo_pgsql \
+      redis \
+      memcached \
+      && apk add mysql-client \
+            postgresql-client
 
 ENTRYPOINT ["/tmp/vendor/bin/drush"]
