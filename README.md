@@ -55,6 +55,6 @@ docker run -v $(pwd):/app drush/drush:8 --version
   make
   ```
 
-4. Visit [the `drush/drush` Docker Hub](https://hub.docker.com/r/satyadeep/drush/) for build details.
+4. Visit [the `satyadeep/drush` Docker Hub](https://hub.docker.com/r/satyadeep/drush/) for build details.
 
 5. Submit Pull Requests and create issues for new changes and features you'd like to add.
