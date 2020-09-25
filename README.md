@@ -36,7 +36,7 @@ docker run -v $(pwd):/app satyadeep/drush status
 If you installed a specific version of Drush, run it with:
 
 ``` bash
-docker run -v $(pwd):/app drush/drush:8 --version
+docker run -v $(pwd):/app drush/drush:9 --version
 ```
 
 ## Development
