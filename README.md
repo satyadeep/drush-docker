@@ -1,4 +1,4 @@
-# Drush Docker Container [![Build Status](https://travis-ci.org/RobLoach/drush-docker.svg?branch=master)](https://travis-ci.org/RobLoach/drush-docker)
+# Drush Docker Container
 
 A [Docker](http://docker.com) container to run [Drush](https://github.com/drush-ops/drush), [Drupal](http://drupal.org)'s command line tool.
 
@@ -8,16 +8,16 @@ This covers how to run the Drush container through the [Docker CLI](http://docke
 
 ### Pull
 
-Pull `drush/drush` from the Docker repository:
+Pull `satyadeep/drush` from the Docker repository:
 
 ``` bash
-docker pull drush/drush
+docker pull satyadeep/drush
 ```
 
 Alternatively, you can download a specific version of Drush:
 
 ``` bash
-docker pull drush/drush:8
+docker pull satyadeep/drush:8
 ```
 
 ### Run
@@ -25,10 +25,10 @@ docker pull drush/drush:8
 To execute Drush directly, run the container with `docker run`, mounting the `/app` volume:
 
 ``` bash
-docker run -v $(pwd):/app drush/drush
-docker run -v $(pwd):/app drush/drush help
-docker run -v $(pwd):/app drush/drush --version
-docker run -v $(pwd):/app drush/drush status
+docker run -v $(pwd):/app satyadeep/drush
+docker run -v $(pwd):/app satyadeep/drush help
+docker run -v $(pwd):/app satyadeep/drush --version
+docker run -v $(pwd):/app satyadeep/drush status
 ```
 
 If you installed a specific version of Drush, run it with:
@@ -41,13 +41,13 @@ docker run -v $(pwd):/app drush/drush:8 --version
 
 1. Download the source:
   ``` bash
-  git clone https://github.com/RobLoach/drush-docker.git
+  git clone https://github.com/satyadeeo/drush-docker.git
   cd drush-docker
   ```
 
 2. Build one of the images:
   ``` bash
-  docker build -t drush/drush:8 8
+  docker build -t satyadeep/drush:8 8
   ```
 
 3. Use the `Makefile` to build and test all images:
@@ -55,6 +55,6 @@ docker run -v $(pwd):/app drush/drush:8 --version
   make
   ```
 
-4. Visit [the `drush/drush` Docker Hub](https://hub.docker.com/r/drush/drush/) for build details.
+4. Visit [the `drush/drush` Docker Hub](https://hub.docker.com/r/satyadeep/drush/) for build details.
 
 5. Submit Pull Requests and create issues for new changes and features you'd like to add.
