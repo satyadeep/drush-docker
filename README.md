@@ -2,6 +2,8 @@
 
 A [Docker](http://docker.com) container to run [Drush](https://github.com/drush-ops/drush), [Drupal](http://drupal.org)'s command line tool.
 
+This includes drush versions, 6 through 10. Download the required version using tags.
+
 ## Usage
 
 This covers how to run the Drush container through the [Docker CLI](http://docker.com).
@@ -41,7 +43,7 @@ docker run -v $(pwd):/app drush/drush:8 --version
 
 1. Download the source:
   ``` bash
-  git clone https://github.com/satyadeeo/drush-docker.git
+  git clone https://github.com/satyadeep/drush-docker.git
   cd drush-docker
   ```
 
